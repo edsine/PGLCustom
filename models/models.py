@@ -29,4 +29,33 @@ class CrmLead(models.Model):
     
     
     
+class Hr(models.Model):
+    
+    _inherit = 'hr.employee'
+    
+    title = fields.Selection([
+        ('Mr', 'Mr'),
+        ('Mrs', 'Mrs'),
+        ('Miss', 'Miss'),
+        ('Ms', 'Ms')
+    ], required=True)
+    
+    name_of_children = fields.Char()
+    
+    emergency_relationship = fields.Selection([
+        ('Father', 'Father'),
+        ('Mother', 'Mother'),
+        ('Sibling', 'Sibling'),
+        ('Other', 'Other'),
+    ])
+    
+    emergency_relationship_2 = fields.Selection([
+        ('Father', 'Father'),
+        ('Mother', 'Mother'),
+        ('Sibling', 'Sibling'),
+        ('Other', 'Other'),
+    ])
+    
+    emergency_contact_2 = fields.Char()
+    emergency_phone = fields.Char()
     

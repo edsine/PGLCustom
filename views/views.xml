@@ -56,8 +56,9 @@
 -->
 
 
+    <!-- CRM -->
 
-    <record id="view_crm_form_inherit" model="ir.ui.view" >
+    <record id="view_crm_form_inherit" model="ir.ui.view">
       <field name="name">crm.form.inherited</field>
       <field name="model">crm.lead</field>
       <field name="inherit_id" ref="crm.crm_lead_view_form"/>
@@ -70,5 +71,38 @@
       </field>
     </record>
 
+
+    <!-- HR -->
+
+    <record id="view_hr_employee_form_inherit" model="ir.ui.view">
+      <field name="name">hr.employee.form.inherited</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <!-- find field description and add the field
+             new_field after it -->
+        <xpath expr="/form/sheet/div" position="inside">
+          <h2>
+            <field name="title" placeholder="Title"/>
+          </h2>
+        </xpath>
+
+        <field name="name" position="attributes">
+          <attribute name="placeholder">Full Name</attribute>
+        </field>
+
+        <xpath expr="//field[@name='children']" position="after">
+          <field name="name_of_children" placeholder="Name of Children">Name of Children</field>
+        </xpath>
+
+        <xpath expr="//field[@name='emergency_phone']" position="after">
+          <field name="emergency_relationship">Relationship</field>
+          <field name="emergency_contact_2">Emergency Contact 2</field>
+          <field name="emergency_contact_2">Emergency Phone 2</field>
+          <field name="emergency_relationship_2">Relationship</field>
+        </xpath>
+
+      </field>
+    </record>
   </data>
 </odoo>
