@@ -142,7 +142,25 @@
         </xpath>
 
         <group name="employment_history" position="after">
-          <field name="class_of_degree" string="Grade/Class of Degree"/>
+          <group name="" string="">
+            <field name="working_relatives" string="Do you have any relatives working in this company?"></field>
+            <field name="working_relatives_name" attrs="{'invisible': [('working_relatives', 'not in', ['Yes'])]}" string="Name"/>
+
+            <field name="working_relatives_relationship" attrs="{'invisible': [('working_relatives', 'not in', ['Yes'])]}" string="Relationship"/>
+          </group>
+        </group>
+
+        <group name="employment_history" position="after">
+          <group name="security" string="Security">
+              <field name="months_lived" string="How long have you lived in your current Address? Months"></field>
+              <field name="years_lived" string="Years"></field>
+              <field name="conviction" string="Have you been convicted of felony or a misdemeanor or served time?"/>
+              <field name="conviction_details" attrs="{'invisible': [('conviction', 'not in', ['Yes'])]}" string="If Yes, kindly describe incident (indicate city, state and charge):"/>
+
+              <field name="driving_license" string="Do you have a driving license?"></field>
+              <field name="work_in_other_states" string="Are you willing to work in other states?"></field>
+              <field name="background_check" string="Do you authorize PGL to do a criminal and professional background check on you?"></field>
+          </group>
         </group>
 
 

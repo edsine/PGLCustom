@@ -76,3 +76,35 @@ class Hr(models.Model):
     emp_history_start_date = fields.Date()
     emp_history_end_date = fields.Date()
     emp_reason_for_leaving = fields.Char()
+    
+    working_relatives = fields.Selection([
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    ])
+    working_relatives_name = fields.Char()
+    working_relatives_relationship = fields.Char()
+    
+    
+    months_lived = fields.Integer()
+    years_lived = fields.Integer()
+    
+    conviction = fields.Selection([
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    ])
+    conviction_details = fields.Char()
+    
+    driving_license = fields.Selection([
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    ])
+    
+    work_in_other_states = fields.Selection([
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    ])
+    
+    background_check = fields.Selection([
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    ])
