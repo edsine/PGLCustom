@@ -79,22 +79,29 @@
       <field name="model">hr.employee</field>
       <field name="inherit_id" ref="hr.view_employee_form"/>
       <field name="arch" type="xml">
-        <!-- find field description and add the field
-             new_field after it -->
-        <xpath expr="/form/sheet/div" position="inside">
-          <h2>
+
+        <!-- General -->
+        <xpath expr="//field[@name='category_ids']" position="before">
+          <h6>
             <field name="title" placeholder="Title"/>
-          </h2>
+          </h6>
         </xpath>
 
         <field name="name" position="attributes">
           <attribute name="placeholder">Full Name</attribute>
         </field>
 
+        <!-- End General -->
+
+        <!-- Dependant -->
+
         <xpath expr="//field[@name='children']" position="after">
           <field name="name_of_children" placeholder="Name of Children" string="Name of Children"/>
         </xpath>
 
+        <!-- End Dependant -->
+
+        <!-- Emergency -->
         <xpath expr="//field[@name='emergency_phone']" position="after">
           <field name="emergency_relationship">Relationship</field>
           <field name="emergency_contact_2">Emergency Contact 2</field>
@@ -102,67 +109,235 @@
           <field name="emergency_relationship_2">Relationship</field>
         </xpath>
 
-        <field name="study_school" position="attributes">
-          <attribute name="string">Name of Institution</attribute>
-        </field>
 
-        <field name="study_field" position="attributes">
-          <attribute name="string">Course/Subject of Study</attribute>
-        </field>
+        <!-- End Emergency -->
 
-        <field name="certificate" position="attributes">
-          <attribute name="string">Qualification Obtained</attribute>
-        </field>
 
-        <field name="study_school" position="after">
-          <field name="class_of_degree" string="Grade/Class of Degree"/>
-          <field name="deg_start_date" string="Start Date"/>
-          <field name="deg_end_date" string="End Date"/>
-        </field>
+        <!-- Education -->
 
-        <xpath expr="//group[@name='work_permit']" position="after">
-          <group name="professional_qualifications" string="Professional Qualifications">
-            <field name="prof_name_of_institution" string="Name of Institution"/>
-            <field name="prof_certificate_obtained" string="Certificate Obtained"/>
-            <field name="prof_class_of_certification" string="Grade/Class of Certification"/>
-            <field name="prof_start_date" string="Start Date"/>
-            <field name="prof_end_date" string="End Date"/>
-          </group>
+        <xpath expr="//page['hr_settings']" position="after">
+          <page name="academic_qualifications" string="Academic Qualifications">
+            <group>
+              <field name="edu_name_of_institution_1" string="Name of Institution"/>
+              <field name="edu_subject_study_1" string="Course/Subject of Study"/>
+              <field name="edu_qualification_1" string="Qualification Obtained"/>
+              <field name="edu_start_date_1" string="Start Date"/>
+              <field name="edu_end_date_1" string="End Date"/>
+            </group>
+
+            <group>
+              <field name="edu_name_of_institution_2" string="Name of Institution"/>
+              <field name="edu_subject_study_2" string="Course/Subject of Study"/>
+              <field name="edu_qualification_2" string="Qualification Obtained"/>
+              <field name="edu_start_date_2" string="Start Date"/>
+              <field name="edu_end_date_2" string="End Date"/>
+            </group>
+
+            <group>
+              <field name="edu_name_of_institution_3" string="Name of Institution"/>
+              <field name="edu_subject_study_3" string="Course/Subject of Study"/>
+              <field name="edu_qualification_3" string="Qualification Obtained"/>
+              <field name="edu_start_date_3" string="Start Date"/>
+              <field name="edu_end_date_3" string="End Date"/>
+            </group>
+
+            <group>
+              <field name="edu_name_of_institution_4" string="Name of Institution"/>
+              <field name="edu_subject_study_4" string="Course/Subject of Study"/>
+              <field name="edu_qualification_4" string="Qualification Obtained"/>
+              <field name="edu_start_date_4" string="Start Date"/>
+              <field name="edu_end_date_4" string="End Date"/>
+            </group>
+          </page>
         </xpath>
 
-        <xpath expr="//group[@name='professional_qualifications']" position="after">
-          <group name="employment_history" string="Employment History">
-            <field name="emp_history_organization" string="Organization"/>
-            <field name="emp_history_role" string="Role"/>
-            <field name="emp_history_contact_name" string="Contact Name"/>
-            <field name="emp_history_start_date" string="Start Date"/>
-            <field name="emp_history_end_date" string="End Date"/>
-            <field name="emp_reason_for_leaving" string="Reason for Leaving"/>
-          </group>
+        <!-- end Education -->
+
+
+        <!-- Professional Qualification -->
+
+        <xpath expr="//page[@name='academic_qualifications']" position="after">
+          <page name="professional_qualifications" string="Professional Qualifications">
+            <group>
+              <field name="prof_name_of_institution_1" string="Name of Institution"/>
+              <field name="prof_certificate_obtained_1" string="Certificate Obtained"/>
+              <field name="prof_class_of_certification_1" string="Grade/Class of Certification"/>
+              <field name="prof_start_date_1" string="Start Date"/>
+              <field name="prof_end_date_1" string="End Date"/>
+            </group>
+
+            <group>
+              <field name="prof_name_of_institution_2" string="Name of Institution"/>
+              <field name="prof_certificate_obtained_2" string="Certificate Obtained"/>
+              <field name="prof_class_of_certification_2" string="Grade/Class of Certification"/>
+              <field name="prof_start_date_2" string="Start Date"/>
+              <field name="prof_end_date_2" string="End Date"/>
+            </group>
+
+            <group>
+              <field name="prof_name_of_institution_3" string="Name of Institution"/>
+              <field name="prof_certificate_obtained_3" string="Certificate Obtained"/>
+              <field name="prof_class_of_certification_3" string="Grade/Class of Certification"/>
+              <field name="prof_start_date_3" string="Start Date"/>
+              <field name="prof_end_date_3" string="End Date"/>
+            </group>
+
+            <group>
+              <field name="prof_name_of_institution_4" string="Name of Institution"/>
+              <field name="prof_certificate_obtained_4" string="Certificate Obtained"/>
+              <field name="prof_class_of_certification_4" string="Grade/Class of Certification"/>
+              <field name="prof_start_date_4" string="Start Date"/>
+              <field name="prof_end_date_4" string="End Date"/>
+            </group>
+          </page>
         </xpath>
 
-        <group name="employment_history" position="after">
-          <group name="" string="">
-            <field name="working_relatives" string="Do you have any relatives working in this company?"></field>
-            <field name="working_relatives_name" attrs="{'invisible': [('working_relatives', 'not in', ['Yes'])]}" string="Name"/>
+        <!-- End Professional Qualification -->
 
-            <field name="working_relatives_relationship" attrs="{'invisible': [('working_relatives', 'not in', ['Yes'])]}" string="Relationship"/>
-          </group>
-        </group>
 
-        <group name="employment_history" position="after">
-          <group name="security" string="Security">
-              <field name="months_lived" string="How long have you lived in your current Address? Months"></field>
-              <field name="years_lived" string="Years"></field>
-              <field name="conviction" string="Have you been convicted of felony or a misdemeanor or served time?"/>
-              <field name="conviction_details" attrs="{'invisible': [('conviction', 'not in', ['Yes'])]}" string="If Yes, kindly describe incident (indicate city, state and charge):"/>
+        <!-- Employment History -->
+
+        <xpath expr="//page[@name='professional_qualifications']" position="after">
+          <page name="employment_history" string="Employment History">
+            <group>
+              <field name="emp_history_organization_1" string="Organization 1"/>
+              <field name="emp_history_role_1" string="Role"/>
+              <field name="emp_history_contact_name_1" string="Contact Name"/>
+              <field name="emp_history_start_date_1" string="Start Date"/>
+              <field name="emp_history_end_date_1" string="End Date"/>
+              <field name="emp_reason_for_leaving_1" string="Reason for Leaving"/>
+            </group>
+
+            <group>
+              <field name="emp_history_organization_2" string="Organization 2"/>
+              <field name="emp_history_role_2" string="Role"/>
+              <field name="emp_history_contact_name_2" string="Contact Name"/>
+              <field name="emp_history_start_date_2" string="Start Date"/>
+              <field name="emp_history_end_date_2" string="End Date"/>
+              <field name="emp_reason_for_leaving_2" string="Reason for Leaving"/>
+            </group>
+
+
+            <group>
+              <field name="emp_history_organization_3" string="Organization 3"/>
+              <field name="emp_history_role_3" string="Role"/>
+              <field name="emp_history_contact_name_3" string="Contact Name"/>
+              <field name="emp_history_start_date_3" string="Start Date"/>
+              <field name="emp_history_end_date_3" string="End Date"/>
+              <field name="emp_reason_for_leaving_3" string="Reason for Leaving"/>
+            </group>
+
+            <group>
+              <field name="emp_history_organization_4" string="Organization 4"/>
+              <field name="emp_history_role_4" string="Role"/>
+              <field name="emp_history_contact_name_4" string="Contact Name"/>
+              <field name="emp_history_start_date_4" string="Start Date"/>
+              <field name="emp_history_end_date_4" string="End Date"/>
+              <field name="emp_reason_for_leaving_4" string="Reason for Leaving"/>
+            </group>
+
+            <group>
+              <field name="working_relatives" string="Do you have any relatives working in this company?"></field>
+            </group>
+
+            <group name="working_relatives_details" attrs="{'invisible': [('working_relatives', 'not in', ['Yes'])]}">
+              <group>
+                <field name="working_relatives_name_1" string="Name"/>
+                <field name="working_relatives_relationship_1" string="Relationship"/>
+              </group>
+              <group>
+                <field name="working_relatives_name_2" string="Name"/>
+                <field name="working_relatives_relationship_2" string="Relationship"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
+
+        <!-- End Employment History -->
+
+
+        <!-- Security -->
+
+        <xpath expr="//page[@name='employment_history']" position="after">
+          <page name="security" string="Security">
+            <group>
+              <group string="How long have you lived in your current Address?">
+                <field name="months_lived" string="Months"></field>
+                <field name="years_lived" string="Years"></field>
+              </group>
+
+              <group>
+                <field name="conviction" string="Have you been convicted of felony or a misdemeanor or served time?"/>
+                <field name="conviction_details" attrs="{'invisible': [('conviction', 'not in', ['Yes'])]}" string="If Yes, kindly describe incident (indicate city, state and charge):"/>
+              </group>
+
+
+            </group>
+
+            <group>
 
               <field name="driving_license" string="Do you have a driving license?"></field>
               <field name="work_in_other_states" string="Are you willing to work in other states?"></field>
               <field name="background_check" string="Do you authorize PGL to do a criminal and professional background check on you?"></field>
-          </group>
-        </group>
+            </group>
+          </page>
+        </xpath>
 
+
+
+        <!-- End Security -->
+
+
+        <!-- References -->
+        <xpath expr="//page[@name='security']" position="after">
+          <page name="references" string="References">
+            <group>
+              <field name="reference_name_1" string="Full Name"/>
+              <field name="reference_phone_number_1" string="Phone Number"/>
+              <field name="references_relationship_1" string="Relationship"/>
+              <field name="years_known_1" string="Years known"/>
+              <field name="best_call_time_1" string="Best Call Time"/>
+            </group>
+
+            <group>
+              <field name="reference_name_2" string="Full Name"/>
+              <field name="reference_phone_number_2" string="Phone Number"/>
+              <field name="references_relationship_2" string="Relationship"/>
+              <field name="years_known_2" string="Years known"/>
+              <field name="best_call_time_2" string="Best Call Time"/>
+            </group>
+
+
+            <group>
+              <field name="reference_name_3" string="Full Name"/>
+              <field name="reference_phone_number_3" string="Phone Number"/>
+              <field name="references_relationship_3" string="Relationship"/>
+              <field name="years_known_3" string="Years known"/>
+              <field name="best_call_time_3" string="Best Call Time"/>
+            </group>
+
+          </page>
+        </xpath>
+
+        <!-- End References -->
+
+        <!-- Guarantor -->
+
+        <xpath expr="//page[@name='references']" position="after">
+          <page name="guarantor" string="Guarantor">
+            <group>
+              <field name="guarantor_name" string="Full Name of the Guarantor"/>
+              <field name="guarantor_nin" string="NIN"/>
+              <field name="guarantor_address" string="Residential Address"/>
+              <field name="guarantor_phone" string="Telephone Number(s)"/>
+              <field name="guarantor_email" string="Email Address"/>
+              <field name="guarantor_current_emp_buss" string="Current Employer/Business Name"/>
+              <field name="guarantor_emp_buss_address" string="Employer/Business Address"/>
+              <field name="guarantor_job_title" string="Job Title/ Rank/ Position"/>
+            </group>
+          </page>
+        </xpath>
+        <!-- End Guarantor -->
 
       </field>
     </record>
