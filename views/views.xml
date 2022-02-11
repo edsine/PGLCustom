@@ -92,7 +92,7 @@
         </field>
 
         <xpath expr="//field[@name='children']" position="after">
-          <field name="name_of_children" placeholder="Name of Children">Name of Children</field>
+          <field name="name_of_children" placeholder="Name of Children" string="Name of Children"/>
         </xpath>
 
         <xpath expr="//field[@name='emergency_phone']" position="after">
@@ -101,6 +101,50 @@
           <field name="emergency_contact_2">Emergency Phone 2</field>
           <field name="emergency_relationship_2">Relationship</field>
         </xpath>
+
+        <field name="study_school" position="attributes">
+          <attribute name="string">Name of Institution</attribute>
+        </field>
+
+        <field name="study_field" position="attributes">
+          <attribute name="string">Course/Subject of Study</attribute>
+        </field>
+
+        <field name="certificate" position="attributes">
+          <attribute name="string">Qualification Obtained</attribute>
+        </field>
+
+        <field name="study_school" position="after">
+          <field name="class_of_degree" string="Grade/Class of Degree"/>
+          <field name="deg_start_date" string="Start Date"/>
+          <field name="deg_end_date" string="End Date"/>
+        </field>
+
+        <xpath expr="//group[@name='work_permit']" position="after">
+          <group name="professional_qualifications" string="Professional Qualifications">
+            <field name="prof_name_of_institution" string="Name of Institution"/>
+            <field name="prof_certificate_obtained" string="Certificate Obtained"/>
+            <field name="prof_class_of_certification" string="Grade/Class of Certification"/>
+            <field name="prof_start_date" string="Start Date"/>
+            <field name="prof_end_date" string="End Date"/>
+          </group>
+        </xpath>
+
+        <xpath expr="//group[@name='professional_qualifications']" position="after">
+          <group name="employment_history" string="Employment History">
+            <field name="emp_history_organization" string="Organization"/>
+            <field name="emp_history_role" string="Role"/>
+            <field name="emp_history_contact_name" string="Contact Name"/>
+            <field name="emp_history_start_date" string="Start Date"/>
+            <field name="emp_history_end_date" string="End Date"/>
+            <field name="emp_reason_for_leaving" string="Reason for Leaving"/>
+          </group>
+        </xpath>
+
+        <group name="employment_history" position="after">
+          <field name="class_of_degree" string="Grade/Class of Degree"/>
+        </group>
+
 
       </field>
     </record>
